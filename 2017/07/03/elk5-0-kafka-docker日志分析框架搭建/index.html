@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="albedo" />
+  <meta name="keywords" content="elk,docker,docker-compose," />
 
 
 
@@ -93,15 +93,17 @@
 
 
 
-<meta name="description" content="Dream or to have, in case of it">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Albedo">
-<meta property="og:url" content="https://somewheremrli.github.io/index.html">
+<meta name="description" content="CentOS 7.0下Docker的安装 查看内核版本(Docker需要64位版本，同时内核版本在3.10以上，如果版本低于3.10，需要升级内核)： 1uname -r  更新yum包： 1yum update  添加yum仓库： 12345678sudo tee /etc/yum.repos.d/docker.repo &amp;lt;&amp;lt;-&apos;EOF&apos;[dockerrepo]name=Docker">
+<meta name="keywords" content="elk,docker,docker-compose">
+<meta property="og:type" content="article">
+<meta property="og:title" content="elk5.0+kafka+docker日志分析框架搭建">
+<meta property="og:url" content="https://somewheremrli.github.io/2017/07/03/elk5-0-kafka-docker日志分析框架搭建/index.html">
 <meta property="og:site_name" content="Albedo">
-<meta property="og:description" content="Dream or to have, in case of it">
+<meta property="og:description" content="CentOS 7.0下Docker的安装 查看内核版本(Docker需要64位版本，同时内核版本在3.10以上，如果版本低于3.10，需要升级内核)： 1uname -r  更新yum包： 1yum update  添加yum仓库： 12345678sudo tee /etc/yum.repos.d/docker.repo &amp;lt;&amp;lt;-&apos;EOF&apos;[dockerrepo]name=Docker">
+<meta property="og:updated_time" content="2017-07-03T06:45:27.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Albedo">
-<meta name="twitter:description" content="Dream or to have, in case of it">
+<meta name="twitter:title" content="elk5.0+kafka+docker日志分析框架搭建">
+<meta name="twitter:description" content="CentOS 7.0下Docker的安装 查看内核版本(Docker需要64位版本，同时内核版本在3.10以上，如果版本低于3.10，需要升级内核)： 1uname -r  更新yum包： 1yum update  添加yum仓库： 12345678sudo tee /etc/yum.repos.d/docker.repo &amp;lt;&amp;lt;-&apos;EOF&apos;[dockerrepo]name=Docker">
 
 
 
@@ -129,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://somewheremrli.github.io/"/>
+  <link rel="canonical" href="https://somewheremrli.github.io/2017/07/03/elk5-0-kafka-docker日志分析框架搭建/"/>
 
 
 
 
 
-  <title>Albedo</title>
+  <title>elk5.0+kafka+docker日志分析框架搭建 | Albedo</title>
   
 
 
@@ -160,9 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -275,9 +275,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -303,9 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/03/elk5-0-kafka-docker日志分析框架搭建/" itemprop="url">elk5.0+kafka+docker日志分析框架搭建</a></h1>
+          <h1 class="post-title" itemprop="name headline">elk5.0+kafka+docker日志分析框架搭建</h1>
         
 
         <div class="post-meta">
@@ -352,9 +350,7 @@
       
 
       
-        
-          
-            <h2 id="CentOS-7-0下Docker的安装"><a href="#CentOS-7-0下Docker的安装" class="headerlink" title="CentOS 7.0下Docker的安装"></a>CentOS 7.0下Docker的安装</h2><ol>
+        <h2 id="CentOS-7-0下Docker的安装"><a href="#CentOS-7-0下Docker的安装" class="headerlink" title="CentOS 7.0下Docker的安装"></a>CentOS 7.0下Docker的安装</h2><ol>
 <li><p>查看内核版本(Docker需要64位版本，同时内核版本在3.10以上，如果版本低于3.10，需要升级内核)：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uname -r</div></pre></td></tr></table></figure>
 </li>
@@ -392,168 +388,72 @@
 <h3 id="logstash-conf"><a href="#logstash-conf" class="headerlink" title="logstash.conf:"></a>logstash.conf:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">input &#123;</div><div class="line">  kafka &#123;</div><div class="line">    bootstrap_servers =&gt; &quot;kafka1:9092,kafka2:9092,kafka3:9092&quot;</div><div class="line">    client_id =&gt; &quot;logstash&quot;</div><div class="line">    group_id =&gt; &quot;logstash&quot;</div><div class="line">    consumer_threads =&gt; 3</div><div class="line">    topics =&gt; [&quot;log&quot;]</div><div class="line">    codec =&gt; &quot;json&quot;</div><div class="line">    tags =&gt; [&quot;log&quot;, &quot;kafka_source&quot;]</div><div class="line">    type =&gt; &quot;log&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">filter &#123;</div><div class="line">  if [type] == &quot;apache_access&quot; &#123;</div><div class="line">    grok &#123;</div><div class="line">      match =&gt; &#123; &quot;message&quot; =&gt; &quot;%&#123;COMMONAPACHELOG&#125;&quot; &#125;</div><div class="line">    &#125;</div><div class="line">    date &#123;</div><div class="line">      match =&gt; [&quot;timestamp&quot;, &quot;dd/MMM/yyyy:HH:mm:ss Z&quot;]</div><div class="line">      remove_field =&gt; [&quot;timestamp&quot;]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  if [type] == &quot;apache_error&quot; &#123;</div><div class="line">    grok &#123;</div><div class="line">      match =&gt; &#123; &quot;message&quot; =&gt; &quot;%&#123;COMMONAPACHELOG&#125;&quot; &#125;</div><div class="line">    &#125;</div><div class="line">    date &#123;</div><div class="line">      match =&gt; [&quot;timestamp&quot;, &quot;dd/MMM/yyyy:HH:mm:ss Z&quot;]</div><div class="line">      remove_field =&gt; [&quot;timestamp&quot;]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">output &#123;</div><div class="line">  if [type] == &quot;apache_access&quot; &#123;</div><div class="line">    elasticsearch &#123;</div><div class="line">         hosts =&gt; [&quot;elasticsearch:9200&quot;]</div><div class="line">         index =&gt; &quot;logstash-apache-access-%&#123;+YYYY.MM.dd&#125;&quot;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  if [type] == &quot;apache_error&quot; &#123;</div><div class="line">    elasticsearch &#123;</div><div class="line">         hosts =&gt; [&quot;elasticsearch:9200&quot;]</div><div class="line">         index =&gt; &quot;logstash-apache-error-%&#123;+YYYY.MM.dd&#125;&quot;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="kibana-yml"><a href="#kibana-yml" class="headerlink" title="kibana.yml:"></a>kibana.yml:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">server.name: kibana</div><div class="line">server.host: &quot;0&quot;</div><div class="line">elasticsearch.url: http://elasticsearch:9200</div><div class="line">xpack.monitoring.ui.container.elasticsearch.enabled: false</div></pre></td></tr></table></figure>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://somewheremrli.github.io/2017/06/06/github搭建个人博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="somewhere">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Albedo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/06/github搭建个人博客/" itemprop="url">github搭建个人博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T17:39:40+08:00">
-                2017-06-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/elk-docker-docker-compose/" rel="tag"># elk,docker,docker-compose</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>小白一枚，突然想自己搭建一个博客，偶然间发现了hexo这个东东，结合github的免费建站功能，然后就…说干就干，一下记录了搭建的步骤。(ps:适合需要有一点了解git的小伙伴)</p>
-<p>首先 我是window10 安装 git nodejs， 什么不会？ 家常问度娘，专业问google，你懂得，这个就不多解释了</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div><div class="line">$ hexo init blog</div><div class="line">$ <span class="built_in">cd</span> blog</div><div class="line">$ npm install</div><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>太慢？npm设置一个淘宝的源吧 看看这个 <a href="https://npm.taobao.org/" target="_blank" rel="external">https://npm.taobao.org/</a></p>
-<p>执行完毕之后，控制台应该会输出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">INFO  Start processing</div><div class="line">INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
-<p>简单介绍一下hexo的命令，应该都能看懂</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">D:\blog\somewhere&gt;hexo -<span class="built_in">help</span></div><div class="line">Usage: hexo &lt;<span class="built_in">command</span>&gt;</div><div class="line">Commands:</div><div class="line">  clean     Removed generated files and cache.</div><div class="line">  config    Get or <span class="built_in">set</span> configurations.</div><div class="line">  deploy    Deploy your website. <span class="comment">#简写 hexo d</span></div><div class="line">  generate  Generate static files. <span class="comment">#简写 hexo g</span></div><div class="line">  <span class="built_in">help</span>      Get <span class="built_in">help</span> on a <span class="built_in">command</span>.</div><div class="line">  init      Create a new Hexo folder.</div><div class="line">  list      List the information of the site</div><div class="line">  migrate   Migrate your site from other system to Hexo.</div><div class="line">  new       Create a new post.</div><div class="line">  publish   Moves a draft post from _drafts to _posts folder.</div><div class="line">  render    Render files with renderer plugins.</div><div class="line">  server    Start the server. <span class="comment">#简写 hexo s</span></div><div class="line">  version   Display version information.</div><div class="line">Global Options:</div><div class="line">  --config  Specify config file instead of using _config.yml</div><div class="line">  --cwd     Specify the CWD</div><div class="line">  --debug   Display all verbose messages <span class="keyword">in</span> the terminal</div><div class="line">  --draft   Display draft posts</div><div class="line">  --safe    Disable all plugins and scripts</div><div class="line">  --silent  Hide output on console</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/" target="_blank" rel="external">hexo</a></p>
-<h3 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h3><p>来自知乎大神 <a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">https://www.zhihu.com/question/24422335</a> 笔者毅然决然的选择了next 以下是简单的安装步骤<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> your-hexo-site</div><div class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
-<p>接着找到 _config.yml 修改theme为next<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Extensions</span></div><div class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></div><div class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></div><div class="line">theme: next</div></pre></td></tr></table></figure></p>
-<p>然后找到位于\themes\next [_config.yml] 这里面有这个主题相关配置<br>选择 Scheme<br>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白<br>Mist - Muse 的紧凑版本，整洁有序的单栏外观<br>Pisces - 双栏 Scheme，小家碧玉似的清新<br>Scheme 的切换通过更改 主题配置文件，搜索 scheme 关键字。 你会看到有三行 scheme 的配置，将你需用启用的 scheme 前面注释 # 去除即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#scheme: Muse</span></div><div class="line"><span class="comment">#scheme: Mist</span></div><div class="line">scheme: Pisces</div></pre></td></tr></table></figure></p>
-<h3 id="发布到github"><a href="#发布到github" class="headerlink" title="发布到github"></a>发布到github</h3><p>我们写好博客，不仅想自己能看，也想分享到浩瀚的网络世界，那么github就是我们一个不错的选择，免费，免费，免费，不限流量，缺点静态网页，不过写写博客足够了<br>首先在git上面创建 yourname.github.io 格式一定要这样，<br>打开 _config.yml 找到 deploy<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></div><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: https://github.com/yourname/yourname.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p>然后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
-<p>地址栏输入：yourname.github.io.git<br>什么发布报错？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/06/github搭建个人博客/" rel="next" title="github搭建个人博客">
+                <i class="fa fa-chevron-left"></i> github搭建个人博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -561,6 +461,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -580,8 +484,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/head.jpg"
@@ -634,6 +547,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS-7-0下Docker的安装"><span class="nav-number">1.</span> <span class="nav-text">CentOS 7.0下Docker的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-Compose的安装"><span class="nav-number">2.</span> <span class="nav-text">Docker Compose的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ELK-5-X-配置-yml"><span class="nav-number">3.</span> <span class="nav-text">ELK 5.X 配置 yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件"><span class="nav-number">4.</span> <span class="nav-text">配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#filebeat-yml"><span class="nav-number">4.1.</span> <span class="nav-text">filebeat.yml:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logstash-conf"><span class="nav-number">4.2.</span> <span class="nav-text">logstash.conf:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kibana-yml"><span class="nav-number">4.3.</span> <span class="nav-text">kibana.yml:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -747,10 +676,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
